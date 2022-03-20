@@ -1,0 +1,66 @@
+ncr-action-list: 0.1
+import:
+     log: com.ncr.tx.apitoolkit.actions.common.LogParametersAction
+     copy: com.ncr.tx.apitoolkit.actions.common.CopyAction
+lists:
+   - list: createAccount
+     steps:
+     - action: log
+       parameters:
+         logAll: true
+     - action: copy
+       parameters:
+         set.ext.response.body.id: 1234
+         copyfield.ext.request.body.type: ext.response.body.type
+         copyfield.ext.request.body.label: ext.response.body.label
+         copyfield.ext.request.body.name: ext.response.body.name
+         set.ext.response.body.balance: 0
+         set.ext.response.status.code: 201
+         set.ext.response.headers.Location: "/v1/accounts/1234"
+   - list: getBalance
+     steps:
+     - action: log
+       parameters:
+         logAll: true
+     - action: copy
+       parameters:
+         set.ext.response.status.code: 200
+         copyfield.ext.request.pathvariable.id: ext.response.body.id
+         set.ext.response.body.type: 'checking'
+         set.ext.response.body.label: 'my checking account'
+         set.ext.response.body.balance: 500000
+   - list: queryAccounts
+     steps:
+     - if: "fields['ext.request.query.customerid'] eq '1'"
+       steps:
+        - action: log
+          parameters:
+            logAll: true
+        - action: copy
+          parameters:
+            set.ext.response.status.code: 200
+            set.ext.response.body#0#.id: 1234
+            set.ext.response.body#0#.type: 'checking'
+            set.ext.response.body#0#.label: '1 series accounts'
+            set.ext.response.body#0#.balance: 50000
+            set.ext.response.body#1#.id: 1345
+            set.ext.response.body#1#.type: 'savings'
+            set.ext.response.body#1#.label: 'My savings account'
+            set.ext.response.body#1#.balance: 20000056    
+
+     - else: ""
+       steps:
+        - action: log
+          parameters:
+            logAll: true
+        - action: copy
+          parameters:
+            set.ext.response.status.code: 200
+            set.ext.response.body#0#.id: 9123
+            set.ext.response.body#0#.type: 'checking'
+            set.ext.response.body#0#.label: '9 series accounts'
+            set.ext.response.body#0#.balance: 50000
+            set.ext.response.body#1#.id: 92345
+            set.ext.response.body#1#.type: 'savings'
+            set.ext.response.body#1#.label: '9 series accounts'
+            set.ext.response.body#1#.balance: 20000056          

@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  version: 1.0-SNAPSHOT-oas3
+  title: ?lesson 2?
+servers:
+  - url: /v1
+paths:
+  /getAccount/{id}:
+    get:
+      description: getBalance.
+      operationId: accounts/getBalance
+      parameters:
+       - in: path
+         name: id
+         required: true
+         schema:
+          type: integer
+      responses:
+        '200':
+          description: response1
+          content:
+            application/json:
+              schema:
+                type: object
+  /account:
+    post:
+      description: Simple get mock.
+      operationId: accounts/createAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true      
+      responses:
+        '201':
+          description: response1
+          content:
+            application/json:
+              schema:
+                type: object
+  /getlist:
+    get:
+      description: get the Accounts List.
+      operationId: accounts/queryAccounts
+      parameters:
+       - in: query
+         name: customerid
+         required: true
+         schema:
+          type: integer
+      responses:
+        '200':
+          description: response1
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                   $ref: '#/components/schemas/Account'            
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        balance:
+          type: integer
+        id:
+          type: integer
+        label:
+          type: string
+          
+        type:
+          type: string
+          enum:
+            - checking
+            - savings
+    
+            
