@@ -41,7 +41,7 @@ lists:
             set.ext.response.status.code: 200
             set.ext.response.body#0#.id: 1234
             set.ext.response.body#0#.type: 'checking'
-            set.ext.response.body#0#.label: '1 series accounts'
+            set.ext.response.body#0#.label: '1 series accounts from Git'
             set.ext.response.body#0#.balance: 50000
             set.ext.response.body#1#.id: 1345
             set.ext.response.body#1#.type: 'savings'
@@ -58,7 +58,7 @@ lists:
             set.ext.response.status.code: 200
             set.ext.response.body#0#.id: 9123
             set.ext.response.body#0#.type: 'checking'
-            set.ext.response.body#0#.label: '9 series accounts'
+            set.ext.response.body#0#.label: '9 series accounts from Git'
             set.ext.response.body#0#.balance: 50000
             set.ext.response.body#1#.id: 92345
             set.ext.response.body#1#.type: 'savings'
