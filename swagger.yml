@@ -8,7 +8,7 @@ paths:
   /getAccount/{id}:
     get:
       description: getBalance.
-      operationId: accounts/getBalance
+      operationId: getBalance
       parameters:
        - in: path
          name: id
@@ -25,7 +25,7 @@ paths:
   /account:
     post:
       description: Simple get mock.
-      operationId: accounts/createAccount
+      operationId: createAccount
       requestBody:
         content:
           application/json:
@@ -42,7 +42,7 @@ paths:
   /getlist:
     get:
       description: get the Accounts List.
-      operationId: accounts/queryAccounts
+      operationId: queryAccounts
       parameters:
        - in: query
          name: customerid
