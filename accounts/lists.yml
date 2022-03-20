@@ -45,7 +45,7 @@ lists:
             set.ext.response.body#0#.balance: 50000
             set.ext.response.body#1#.id: 1345
             set.ext.response.body#1#.type: 'savings'
-            set.ext.response.body#1#.label: 'My savings account'
+            set.ext.response.body#1#.label: 'My savings accounts'
             set.ext.response.body#1#.balance: 20000056    
 
      - else: ""
